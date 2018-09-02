@@ -4,5 +4,5 @@ import tools.math.AlgorithmParam;
 import tools.math.Limit;
 
 public abstract class Series implements Limit {
-    public abstract int getSum(AlgorithmParam param) throws IllegalArgumentException;
+    public abstract double getSum(AlgorithmParam param) throws IllegalArgumentException;
 }
