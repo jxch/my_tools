@@ -11,7 +11,7 @@ public class Matrix {
         this.matrix = new int[row][col];
     }
 
-    
+
 
     public int[][] getMatrix() {
         return matrix;
