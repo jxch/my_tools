@@ -1,5 +1,8 @@
 package tools.math.series;
 
-public abstract class Series implements Limit{
-    public abstract int getSum();
+import tools.math.AlgorithmParam;
+import tools.math.Limit;
+
+public abstract class Series implements Limit {
+    public abstract int getSum(AlgorithmParam param) throws IllegalArgumentException;
 }
