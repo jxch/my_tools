@@ -34,9 +34,9 @@ public class Fibonacci extends Series {
             case RECURSION:
                 return getSum_recursion(this.n);
             case LOOP:
-                return getSum_recursion(this.n);
+                return getSum_loop(this.n);
             case OPTIMAL:
-                return getSum_recursion(this.n);
+                return getSum_matrix(this.n);
             default:
                 throw new IllegalArgumentException("没有这种算法，请选择RECURSION,LOOP或OPTIMAL");
         }
@@ -57,7 +57,7 @@ public class Fibonacci extends Series {
     }
 
     /**
-     * for循环求和，时间复杂度O(N)，空间复杂度O(1)。
+     * for循环求和，数据小时优势大，时间复杂度O(N)，空间复杂度O(1)。
      *
      * @param n int 最大数
      * @return 数列和 int
@@ -74,7 +74,7 @@ public class Fibonacci extends Series {
     }
 
     /**
-     * 线性代数递推式求和，时间复杂度(log n)，空间复杂的O(1)。
+     * 线性代数递推式求和，数据大时优势大，时间复杂度(log n)，空间复杂的O(1)。
      * 主要是根据矩阵和快速幂运算的实现的：
      * 可以看出斐波那契数列有如下性质：(fn fn-1)=(fn-1 fn-2)*A,
      * 可以得出A=(1 1;1 0)递推可得：(fn fn-1)=(fn-1 fn-2)*A=(fn-2 fn-3)*A^2=…=(f1 f0)*A^(n-1)，
