@@ -29,7 +29,7 @@ public class Fibonacci extends Series {
      * @throws IllegalArgumentException RECURSION,LOOP和OPTIMAL之外的参数
      */
     @Override
-    public int getSum(AlgorithmParam param) throws IllegalArgumentException {
+    public double getSum(AlgorithmParam param) throws IllegalArgumentException {
         switch (param) {
             case RECURSION:
                 return getSum_recursion(this.n);
@@ -48,7 +48,7 @@ public class Fibonacci extends Series {
      * @param n int 最大数
      * @return 数列和 int
      */
-    private int getSum_recursion(int n) {
+    private double getSum_recursion(int n) {
         if (0 == n || 1 == n) {
             return 1;
         } else {
@@ -62,14 +62,13 @@ public class Fibonacci extends Series {
      * @param n int 最大数
      * @return 数列和 int
      */
-    private int getSum_loop(int n) {
-        int[] fibArr = {0, 1, 0};
+    private double getSum_loop(int n) {
+        double[] fibArr = {0, 1, 0};
         for (int i = 0; i < n; ++i) {
             fibArr[2] = fibArr[0] + fibArr[1];
             fibArr[0] = fibArr[1];
             fibArr[1] = fibArr[2];
         }
-
         return fibArr[2];
     }
 
@@ -83,11 +82,11 @@ public class Fibonacci extends Series {
      * @param n int
      * @return 数列和 int
      */
-    private int getSum_matrix(int n) {
+    private double getSum_matrix(int n) {
         RealMatrix A = new Array2DRowRealMatrix(new double[][]{{1, 1}, {1, 0}});
 
         double[][] ret = getMatrixPower(A, n - 1).getData();
-        return (int) (ret[0][0] + ret[1][0]);
+        return ret[0][0] + ret[1][0];
     }
 
     /**
